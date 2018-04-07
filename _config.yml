@@ -1,0 +1,25 @@
+# Site settings
+title: Kelly Sutton
+email: michael.k.sutton@gmail.com
+description: > # The personal site of Kelly Sutton
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://kellysutton.com" # the base hostname & protocol for your site
+twitter_username: kellysutton
+github_username:  kellysutton
+timezone: "America/Los_Angeles"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-gist
+  - jekyll/imgix
+  - jekyll-last-modified-at
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+encoding: utf-8
+gist:
+  noscript: false
+
+imgix:
+  source: kellysutton-blog.imgix.net

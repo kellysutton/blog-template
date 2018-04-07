@@ -1,0 +1,19 @@
+s3_id: <%= ENV['S3_ID'] %>
+s3_secret: <%= ENV['S3_SECRET'] %>
+s3_bucket: kellysutton.com
+
+gzip:
+  - .html
+  - .css
+  - .md
+gzip_zopfli: true
+
+exclude_from_upload:
+  - Gemfile.lock
+  - Gemfile
+  - README.md
+  - personal_site.sublime-workspace
+  - gems
+
+cloudfront_distribution_id: E69NSFA3829MB
+cloudfront_invalidate_root: true

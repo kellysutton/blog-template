@@ -1,0 +1,38 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text:400,400italic,700,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+
+  <meta property="og:locale" content="en_US" />
+
+  {% if page.og_image %}
+    <meta property="og:image" content="{{ page.og_image | prepend: site.url }}" />
+  {% endif %}
+
+  <meta property="article:author" content="http://kellysutton.com" />
+
+  {% if page.date %}
+    <meta property="og:updated_time" content="{{ page.date | date_to_xmlschema }}" />
+  {% endif %}
+
+  {% if page.og_image %}
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="{{ page.og_image | prepend: site.url }}" />
+  {% else %}
+    <meta property="twitter:card" content="summary" />
+  {% endif %}
+
+  <meta property="twitter:site" content="@kellysutton" />
+  <meta property="twitter:creator" content="@kellysutton" />
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+  <meta property="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}" />
+
+  {% seo title=false %}
+</head>

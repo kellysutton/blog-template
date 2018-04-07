@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <div class="about">
+    {% include about.html %}
+
+    <p>Below are a few blog posts I’ve written over the years.</p>
+
+		<p>If you would like these blog posts and more piped to your inbox on a regular basis, <a href="https://buttondown.email/kellysutton">sign up for my newsletter</a>.</p>
+  </div>
+
+  <hr />
+
+  {% for post in site.posts %}
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+
+    {% if forloop.first %}
+      <h2 id="{{ this_year }}-ref" class="post-list-year">{{this_year}}</h2>
+      <ul class="post-list">
+    {% endif %}
+
+    {% unless post.draft %}
+      <li>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        <span class="post-meta">{{ post.date | date: "%b %-d" }}</span>
+      </li>
+    {% endunless %}
+
+    {% if forloop.last %}
+      </ul>
+    {% else %}
+      {% if this_year != next_year %}
+      </ul>
+      <h2 id="{{ next_year }}-ref" class="post-list-year">{{next_year}}</h2>
+      <ul class="post-list">
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+</div>
